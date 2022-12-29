@@ -2,7 +2,26 @@ package BankAccountApplication;
 
 //checking Account
 public class CheckingAccount extends Account {
-    //Abstract method -are those types of methods that do not require implementation for declaration.
+
+    //default free (for transaction)
+    private static double Fee =2.5;
+    
+    //default constructor 
+    public CheckingAccount(){
+        super();
+    }
+
+    /**
+     *
+     * parameter constructor to initialize checkingAccount
+     * with a account number and transaction fee.
+     *
+     */
+    public CheckingAccount(int accountNumber, double fee){
+        super(accountNumber);
+        Fee=fee;
+
+    }
 
     /**
      * Function to deposit funds into the account as long as the amount parameter is greater than 0
@@ -11,6 +30,20 @@ public class CheckingAccount extends Account {
      *
      */
     public void deposit (double amount){
+        //check amount
+        if(amount <0) {
+            System.out.println("A negative amount cannot be deposited ");
+        }else{
+            balance+= amount;
+            System.out.printf("Amount %.2f deposited %n", amount);
+            // add transaction fee
+            balance -= Fee;
+            System.out.printf("Fee %.2f applied: %n", Fee);
+            System.out.printf("Current %.2f balance: %n", balance);
+
+
+
+        }
 
     }
 
@@ -24,6 +57,21 @@ public class CheckingAccount extends Account {
      *
      */
     public void withdraw(double amount){
+
+        //check amount is greater than 0
+        if(amount >0){
+            // check if there is a sufficient balance
+            if((amount+Fee)<= balance ){
+                System.out.printf("Amount %.2f withdrawn from account%n", amount);
+                balance -= amount;
+                balance -= Fee;
+                System.out.printf("Fee of %.2f applied", Fee);
+                System.out.printf("Current Balance is: %.2f%n", balance);
+            }
+
+        }else{
+            System.out.print("A negative amount cannot be withdrawn");
+        }
 
     }
 }
