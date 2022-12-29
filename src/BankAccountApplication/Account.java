@@ -9,7 +9,9 @@ public abstract class Account {
     public int accountNumber;
 
     //Balance
-    private double balance;
+    //A protected keyword is an access modifier used for attributes, methods and constructors,
+    //making them accessible in the same package and subclass.
+    protected double balance;
 
     // Default constructor - initialize the attributes of the object with their default values
     public Account(){
