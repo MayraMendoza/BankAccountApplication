@@ -1,6 +1,6 @@
 package BankAccountApplication;
 
-//checking Account
+//checking Account (Child class of account).
 public class CheckingAccount extends Account {
 
     //default free (for transaction)
