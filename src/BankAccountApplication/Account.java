@@ -1,8 +1,12 @@
 package BankAccountApplication;
 
 
-//Base class
-//abstract
+//Base class - Abstract.
+//implementation to all the methods in a class. We want to leave the implementation to a class that extends it.
+// In such case we declare a class as abstract. To make a class abstract we use key word abstract.
+// any class that contains one or more abstract methods is declared as abstract.
+// if we don't declare class as abstract which contains abstract methods we get compile time error.
+
 public abstract class Account {
 
     //Account Number
@@ -24,6 +28,7 @@ public abstract class Account {
 
     }
     //getter methods
+    // no set balance because we can only change balance by deposit /withdrawls.
     public double getBalance(){
         return this.balance;
     }
